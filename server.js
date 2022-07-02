@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 
 //import routes 
 const authRoute = require("./src/routes/auth")
+const ticketRoute = require("./src/routes/ticket")
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(express.urlencoded());
 app.use(cookieParser())
 
 
+
 app.get("/api", (req, res) => {
     res.send('Bug Tracker course Express Server')
 });
@@ -21,6 +23,7 @@ app.get("/api", (req, res) => {
 
 
 app.use("/api/auth",authRoute);
+app.use("/api/ticket",ticketRoute)
 
 //connet to data base 
 mongoose.connect(process.env.MONGO_URI).then(() => {
