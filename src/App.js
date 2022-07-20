@@ -1,11 +1,14 @@
-import './App.css';
-import {NavbarMenu} from './Components/NavbarMenu/NavbarMenu'
+import './main.scss';
+import Layout from './Components/Layout';
+import {GlobalProvider} from './context/GlobalContext';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <NavbarMenu />
-    </div>
+      <GlobalProvider>
+        <Layout />
+      </GlobalProvider>
   );
 }
 
