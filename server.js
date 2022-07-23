@@ -23,11 +23,14 @@ app.get("/api", (req, res) => {
 
 
 
-
 app.use("/api/auth",authRoute);
 app.use("/api/ticket",ticketRoute)
 
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build/static", "index.html"));
+});
 
 
 //connet to data base 
