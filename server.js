@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser')
+const path = require("path")
 
 //import routes 
 const authRoute = require("./src/routes/auth")
@@ -22,8 +23,12 @@ app.get("/api", (req, res) => {
 
 
 
+
 app.use("/api/auth",authRoute);
 app.use("/api/ticket",ticketRoute)
+
+
+
 
 //connet to data base 
 mongoose.connect(process.env.MONGO_URI).then(() => {

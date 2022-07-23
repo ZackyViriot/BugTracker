@@ -4,7 +4,7 @@ import { useGlobalContext } from '../context/GlobalContext';
 
 
 const Header = () => {
-    const { user,logout} = useGlobalContext()
+    const { user, logout } = useGlobalContext()
     const { pathname } = useLocation();
 
     return (
@@ -18,17 +18,18 @@ const Header = () => {
 
                 <div className="main-header__right">
                     {user ? (
-                        <button className="btn" onClick = {logout}>Logout</button>
-                    ) :pathname === '/' ? (
-                        <Link to='/register' className='btn'>
+                        <button className="btn" onClick={logout}>
+                            Logout
+                        </button>
+                    ) : pathname === "/" ? (
+                        <Link to="/register" className="btn">
                             Register
                         </Link>
-                    ): (
-                        <Link to = '/' className = 'btn'>
+                    ) : (
+                        <Link to="/" className="btn">
                             Login
                         </Link>
                     )}
-
                 </div>
             </div>
         </div>
